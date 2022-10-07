@@ -17,6 +17,14 @@ function log(val) {
 log(sports[0]);
 log(sports.golf); // return index in enum
 function joke() {
-    return 'shalini is a girl';
+    return 'shalini has a unicorn startup';
 }
 console.log(joke());
+var unionType;
+unionType = 1;
+unionType = "string";
+// console.log(1+'j');
+function addWithUnion(arg1, arg2) {
+    return arg1.toString() + arg2.toString();
+}
+console.log(addWithUnion("shalini age's is ", 56));

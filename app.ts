@@ -10,13 +10,23 @@ enum sports {
     basketball,
     golf
 };
-function log(val: any) {
+function log(val: any): void {
     console.log(val);
 }
 log(sports[0]);
 log(sports.golf); // return index in enum
 
 function joke(): string {
-    return 'shalini is a girl';
+    return 'shalini has a unicorn startup';
 }
 console.log(joke());
+
+let unionType: string | number;
+unionType = 1;
+unionType = "string";
+// console.log(1+'j');
+
+function addWithUnion(arg1: string | number, arg2: string | number): string | number {
+    return arg1.toString() + arg2.toString();
+}
+console.log(addWithUnion("shalini age's is ",56));
