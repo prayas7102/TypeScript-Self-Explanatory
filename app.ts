@@ -14,7 +14,7 @@ function log(val: any): void {
     console.log(val);
 }
 log(sports[0]);
-log(sports.golf); // return index in enum
+log(sports.golf); // return index in enum = 2
 
 function joke(): string {
     return 'shalini has a unicorn startup';
@@ -24,9 +24,32 @@ console.log(joke());
 let unionType: string | number;
 unionType = 1;
 unionType = "string";
-// console.log(1+'j');
+// console.log(1+'j'); is valid in js
 
+// | operator
 function addWithUnion(arg1: string | number, arg2: string | number): string | number {
     return arg1.toString() + arg2.toString();
 }
 console.log(addWithUnion("shalini age's is ",56));
+
+type StringOrNumber = string | number;
+function addWithType(arg1: StringOrNumber, arg2: StringOrNumber): StringOrNumber {
+    return arg1.toString() + arg2.toString();
+}
+console.log(addWithUnion("shalini's father age is ",80));
+
+// null & undefined type
+function testFunc(test: null | number ) {
+    console.log(test)
+}
+// testFunc(); is invalid
+testFunc(80);
+testFunc(null);
+
+// ? operator
+function testFunc1(a:string, b:string="Singh ", c?: string ):void {
+    console.log(a+b+c);
+}
+// testFunc1(); is invalid
+testFunc1('Shalini ','Shawl ');
+testFunc1('Shalini ');
