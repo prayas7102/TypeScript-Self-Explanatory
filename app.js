@@ -38,7 +38,7 @@ function testFunc(test) {
     console.log(test);
 }
 // testFunc(); is invalid
-testFunc(80);
+// testFunc(80);
 testFunc(null);
 // ? operator
 function testFunc1(a, b, c) {
@@ -46,5 +46,15 @@ function testFunc1(a, b, c) {
     console.log(a + b + c);
 }
 // testFunc1(); is invalid
-testFunc1('Shalini ', 'Shawl');
+testFunc1('Shalini ', 'Shawl ');
 testFunc1('Shalini ');
+// ... in fuction parameter
+function testFunc2(a) {
+    var remaing = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        remaing[_i - 1] = arguments[_i];
+    }
+    return a + remaing.join(" ");
+}
+var x = testFunc2('humpty', 'dumpty', 'sat', 'on', 'a wall');
+console.log(x);

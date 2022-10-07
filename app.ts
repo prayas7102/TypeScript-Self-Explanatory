@@ -30,26 +30,33 @@ unionType = "string";
 function addWithUnion(arg1: string | number, arg2: string | number): string | number {
     return arg1.toString() + arg2.toString();
 }
-console.log(addWithUnion("shalini age's is ",56));
+console.log(addWithUnion("shalini age's is ", 56));
 
 type StringOrNumber = string | number;
 function addWithType(arg1: StringOrNumber, arg2: StringOrNumber): StringOrNumber {
     return arg1.toString() + arg2.toString();
 }
-console.log(addWithUnion("shalini's father age is ",80));
+console.log(addWithUnion("shalini's father age is ", 80));
 
 // null & undefined type
-function testFunc(test: null | number ) {
+function testFunc(test: null | number) {
     console.log(test)
 }
 // testFunc(); is invalid
-testFunc(80);
+// testFunc(80);
 testFunc(null);
 
 // ? operator
-function testFunc1(a:string, b:string="Singh ", c?: string ):void {
-    console.log(a+b+c);
+function testFunc1(a: string, b: string = "Singh ", c?: string): void {
+    console.log(a + b + c);
 }
 // testFunc1(); is invalid
-testFunc1('Shalini ','Shawl ');
+testFunc1('Shalini ', 'Shawl ');
 testFunc1('Shalini ');
+
+// ... in fuction parameter
+function testFunc2(a: string, ...remaing: string[]) {
+    return a + remaing.join(" ");
+}
+let x = testFunc2('humpty', ' dumpty', 'sat', 'on', 'a wall');
+console.log(x)
