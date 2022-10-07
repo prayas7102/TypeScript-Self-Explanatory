@@ -38,7 +38,6 @@ let [first, , second] = ['CPP', 'Python', 'Java'];
 // console.log(second);
 
 // OOPs
-
 function rectangle(width, length) {
     this.width = width;
     this.length = length;
@@ -66,3 +65,12 @@ console.log(pqr);
 console.log(pqr.getName());
 pqr.setName('prayas');
 console.log(pqr.getName());
+
+// Generator function
+function* myFunction(val){
+    yield val;
+    yield val+1;
+}
+let gen=myFunction(10);
+console.log(gen.next());
+console.log(gen.next());
