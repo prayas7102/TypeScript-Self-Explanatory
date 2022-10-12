@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript Fundamentals
+//////////////////////////////////////////////////////////////////////////////
+
 let age: number = 2;
 let names: string = "prayas";
 let arr: any[] = ['jatin', 3, true];
@@ -30,7 +34,7 @@ unionType = "string";
 function addWithUnion(arg1: string | number, arg2: string | number): string | number {
     return arg1.toString() + arg2.toString();
 }
-console.log(addWithUnion("shalini age's is ", 56));
+console.log(addWithUnion("shalini age is ", 56));
 
 type StringOrNumber = string | number;
 function addWithType(arg1: StringOrNumber, arg2: StringOrNumber): StringOrNumber {
@@ -60,3 +64,32 @@ function testFunc2(a: string, ...remaing: string[]) {
 }
 let x = testFunc2('humpty', ' dumpty', 'sat', 'on', 'a wall');
 console.log(x)
+
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript GENERICS
+//////////////////////////////////////////////////////////////////////////////
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+let a = identity('anyString')
+let b = identity<number>(10)
+console.log(a);
+console.log(b);
+
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript OOPS & INTERFACES 
+//////////////////////////////////////////////////////////////////////////////
+
+interface Iemployee {
+    readonly id: number;
+    name?: string;
+    age: number;
+}
+// IMPORTANT: use readonly for properties and use const for variables.
+let infosys: Iemployee = { id: 1, age: 8}
+console.log(infosys);
+
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript Modules
+//////////////////////////////////////////////////////////////////////////////

@@ -1,3 +1,6 @@
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript Fundamentals
+//////////////////////////////////////////////////////////////////////////////
 var age = 2;
 var names = "prayas";
 var arr = ['jatin', 3, true];
@@ -28,7 +31,7 @@ unionType = "string";
 function addWithUnion(arg1, arg2) {
     return arg1.toString() + arg2.toString();
 }
-console.log(addWithUnion("shalini age's is ", 56));
+console.log(addWithUnion("shalini age is ", 56));
 function addWithType(arg1, arg2) {
     return arg1.toString() + arg2.toString();
 }
@@ -56,5 +59,20 @@ function testFunc2(a) {
     }
     return a + remaing.join(" ");
 }
-var x = testFunc2('humpty', 'dumpty', 'sat', 'on', 'a wall');
+var x = testFunc2('humpty', ' dumpty', 'sat', 'on', 'a wall');
 console.log(x);
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript GENERICS
+//////////////////////////////////////////////////////////////////////////////
+function identity(arg) {
+    return arg;
+}
+var a = identity('anyString');
+var b = identity(10);
+console.log(a);
+console.log(b);
+var infosys = { id: 1, age: 8 };
+console.log(infosys);
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript Modules
+//////////////////////////////////////////////////////////////////////////////
