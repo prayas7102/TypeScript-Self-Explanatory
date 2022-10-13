@@ -78,7 +78,7 @@ console.log(a);
 console.log(b);
 
 //////////////////////////////////////////////////////////////////////////////
-// TypeScript OOPS & INTERFACES 
+// TypeScript INTERFACES 
 //////////////////////////////////////////////////////////////////////////////
 
 interface Iemployee {
@@ -87,9 +87,77 @@ interface Iemployee {
     age: number;
 }
 // IMPORTANT: use readonly for properties and use const for variables.
-let infosys: Iemployee = { id: 1, age: 8}
+let infosys: Iemployee = { id: 1, age: 8 }
 console.log(infosys);
+
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript OOPS & INTERFACES
+//////////////////////////////////////////////////////////////////////////////
+
+// You can use an implements clause to check that a class 
+// satisfies a particular interface. An error will be issued 
+// if a class fails to correctly implement it:
+
+interface IPrint {
+    print(): any;
+}
+// Ts does'nt support multiple inheritence with the help of so 
+// classes, so interface are used to iplement multiple inheritence 
+
+interface IVariable {
+    printTwo(): any;
+}
+function printClass(a: IPrint) {
+    a.print();
+}
+class ClassA implements IPrint,IVariable {
+    print() { console.log('ClassA.print()') }
+    printTwo() { console.log('ClassA.print()') }
+}
+class ClassB implements IPrint {
+    print() { console.log('ClassB.print()') }
+}
+
+let classA = new ClassA();
+classA.print();
 
 //////////////////////////////////////////////////////////////////////////////
 // TypeScript Modules
 //////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript OOPS 
+//////////////////////////////////////////////////////////////////////////////
+
+class SimpleClass {
+    // --strictPropertyInitialization
+    // The strictPropertyInitialization setting controls whether class fields 
+    // need to be initialized in the constructor.
+    private id: number;
+    name: string;
+    // readonly
+    // Fields may be prefixed with the readonly modifier. This 
+    // prevents assignments to the field outside of the constructor.
+    readonly age: number;
+    static wife: boolean=true;
+    static staticFunc(){
+        console.log('static function called')
+    }
+    // constructor
+    constructor(_name: string, _id: number, _age: number) {
+        this.id = _id;
+        this.name = _name
+        this.age = _age;
+    }
+    print(): void {
+        console.log(`id:: ${this.id}`);
+    }
+}
+let exClass = new SimpleClass('JaiHind', 222, 40);
+// exClass.id = 1; is invalid
+// exClass.age = 10; is invalid
+exClass.name = 'Hi'; // is valid
+console.log(exClass.name,exClass.age)// is valid
+exClass.print();
+SimpleClass.staticFunc();
+console.log(SimpleClass.wife);

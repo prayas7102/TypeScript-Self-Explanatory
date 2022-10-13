@@ -71,8 +71,53 @@ var a = identity('anyString');
 var b = identity(10);
 console.log(a);
 console.log(b);
+// IMPORTANT: use readonly for properties and use const for variables.
 var infosys = { id: 1, age: 8 };
 console.log(infosys);
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript OOPS 
+//////////////////////////////////////////////////////////////////////////////
+var SimpleClass = /** @class */ (function () {
+    // constructor
+    function SimpleClass(_name, _id, _age) {
+        this.id = _id;
+        this.name = _name;
+        this.age = _age;
+    }
+    SimpleClass.staticFunc = function () {
+        console.log('static function called');
+    };
+    SimpleClass.prototype.print = function () {
+        console.log("id:: ".concat(this.id));
+    };
+    SimpleClass.wife = true;
+    return SimpleClass;
+}());
+var exClass = new SimpleClass('JaiHind', 222, 40);
+// exClass.id = 1; is invalid
+// exClass.age = 10; is invalid
+exClass.name = 'Hi'; // is valid
+console.log(exClass.name, exClass.age); // is valid
+exClass.print();
+SimpleClass.staticFunc();
+console.log(SimpleClass.wife);
+function printClass(a) {
+    a.print();
+}
+var ClassA = /** @class */ (function () {
+    function ClassA() {
+    }
+    ClassA.prototype.print = function () { console.log('ClassA.print()'); };
+    return ClassA;
+}());
+var ClassB = /** @class */ (function () {
+    function ClassB() {
+    }
+    ClassB.prototype.print = function () { console.log('ClassB.print()'); };
+    return ClassB;
+}());
+var classA = new ClassA();
+classA.print();
 //////////////////////////////////////////////////////////////////////////////
 // TypeScript Modules
 //////////////////////////////////////////////////////////////////////////////

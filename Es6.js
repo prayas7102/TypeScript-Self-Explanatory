@@ -73,4 +73,4 @@ function* myFunction(val){
 }
 let gen=myFunction(10);
 console.log(gen.next());
-console.log(gen.next());
+console.log(gen.next()); 
