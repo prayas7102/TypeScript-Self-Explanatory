@@ -110,7 +110,7 @@ interface IVariable {
 function printClass(a: IPrint) {
     a.print();
 }
-class ClassA implements IPrint,IVariable {
+class ClassA implements IPrint, IVariable {
     print() { console.log('ClassA.print()') }
     printTwo() { console.log('ClassA.print()') }
 }
@@ -139,8 +139,8 @@ class SimpleClass {
     // Fields may be prefixed with the readonly modifier. This 
     // prevents assignments to the field outside of the constructor.
     readonly age: number;
-    static wife: boolean=true;
-    static staticFunc(){
+    static wife: boolean = true;
+    static staticFunc() {
         console.log('static function called')
     }
     // constructor
@@ -157,7 +157,29 @@ let exClass = new SimpleClass('JaiHind', 222, 40);
 // exClass.id = 1; is invalid
 // exClass.age = 10; is invalid
 exClass.name = 'Hi'; // is valid
-console.log(exClass.name,exClass.age)// is valid
+console.log(exClass.name, exClass.age)// is valid
 exClass.print();
 SimpleClass.staticFunc();
 console.log(SimpleClass.wife);
+
+//////////////////////////////////////////////////////////////////////////////
+// TypeScript Abstract Class 
+//////////////////////////////////////////////////////////////////////////////
+
+abstract class AbstractClass {
+    abstract getData(): string;
+}
+class NewClass extends AbstractClass {
+    getData(): string {
+        return ('muh meh lega? = ');
+    }
+}
+class BabyClass extends NewClass {
+    getData(): string {
+        return (`${super.getData()} nahi`);
+    }
+}
+let exObject = new NewClass();
+console.log(exObject.getData());
+let exObject1 = new BabyClass();
+console.log(exObject1.getData());
