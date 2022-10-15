@@ -14,6 +14,7 @@ enum sports {
     basketball,
     golf
 };
+// 'void' defines undefined is returned 'never' defines nothing is returned
 function log(val: any): void {
     console.log(val);
 }
@@ -66,6 +67,19 @@ let x = testFunc2('humpty', ' dumpty', 'sat', 'on', 'a wall');
 console.log(x)
 
 //////////////////////////////////////////////////////////////////////////////
+// TypeScript INTERFACES 
+//////////////////////////////////////////////////////////////////////////////
+
+interface Iemployee {
+    readonly id: number;
+    name?: string;
+    age: number;
+}
+// IMPORTANT: use readonly for properties and use const for variables.
+let infosys: Iemployee = { id: 1, age: 8 }
+console.log(infosys);
+
+//////////////////////////////////////////////////////////////////////////////
 // TypeScript OOPS & INTERFACES
 //////////////////////////////////////////////////////////////////////////////
 
@@ -76,7 +90,7 @@ console.log(x)
 interface IPrint {
     print(): any;
 }
-// Ts does'nt support multiple inheritence with the help of so 
+// Ts does'nt support multiple inheritence with the help of
 // classes, so interface are used to iplement multiple inheritence 
 
 interface IVariable {
@@ -95,19 +109,6 @@ class ClassB implements IPrint {
 
 let classA = new ClassA();
 classA.print();
-
-//////////////////////////////////////////////////////////////////////////////
-// TypeScript INTERFACES 
-//////////////////////////////////////////////////////////////////////////////
-
-interface Iemployee {
-    readonly id: number;
-    name?: string;
-    age: number;
-}
-// IMPORTANT: use readonly for properties and use const for variables.
-let infosys: Iemployee = { id: 1, age: 8 }
-console.log(infosys);
 
 //////////////////////////////////////////////////////////////////////////////
 // TypeScript OOPS 
@@ -167,10 +168,6 @@ let exObject = new NewClass();
 console.log(exObject.getData());
 let exObject1 = new BabyClass();
 console.log(exObject1.getData());
-
-//////////////////////////////////////////////////////////////////////////////
-// TypeScript Modules
-//////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 // TypeScript GENERICS
