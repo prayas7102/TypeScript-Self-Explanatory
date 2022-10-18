@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import InputField from "./components/inputField";
 import { Todo } from "./model";
 import TodoList from "./components/todoList";
@@ -14,6 +14,10 @@ function App() {
       setTodo("");
     }
   };
+  useEffect(() => {
+    
+  }, [todos])
+  
   return (
     <div className="App">
       <div className="heading">Taskify</div>
