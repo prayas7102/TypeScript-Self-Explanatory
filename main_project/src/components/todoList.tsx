@@ -7,22 +7,22 @@ import "./style.css";
 interface Props {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  completedTodos: Todo[];
+  CompletedTodos: Todo[];
   setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
 const TodoList: React.FC<Props> = ({
   todos,
   setTodos,
-  completedTodos,
+  CompletedTodos,
   setCompletedTodos,
 }) => {
   return (
     <div className="container">
-      <Droppable droppableId="droppable-1" type="PERSON">
+      <Droppable droppableId="TodosList">
         {(provided, snapshot) => (
           <div
-            className="todos"
+            className={`todos ${snapshot.isDraggingOver ? "dragactive" : ""}`}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
@@ -30,11 +30,11 @@ const TodoList: React.FC<Props> = ({
             {todos?.map((todo, index) => {
               return (
                 <div key={todo.id}>
-                  <SingleTodo 
-                    index={index} 
-                    todo={todo} 
-                    todos={todos} 
-                    setTodos={setTodos} 
+                  <SingleTodo
+                    index={index}
+                    todo={todo}
+                    todos={todos}
+                    setTodos={setTodos}
                   />
                 </div>
               );
@@ -43,21 +43,23 @@ const TodoList: React.FC<Props> = ({
           </div>
         )}
       </Droppable>
-      <Droppable droppableId="droppable-1" type="PERSON">
+      <Droppable droppableId="TodosRemove">
         {(provided, snapshot) => (
           <div
-            className="todos remove"
+            className={`todos ${
+              snapshot.isDraggingOver ? "dragcomplete" : "remove"
+            }`}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
             <span className="todos__heading">Completed tasks</span>
-            {completedTodos?.map((todo, index) => {
+            {CompletedTodos?.map((todo, index) => {
               return (
                 <div key={todo.id}>
-                  <SingleTodo 
+                  <SingleTodo
                     index={index}
                     todo={todo}
-                    todos={completedTodos}
+                    todos={CompletedTodos}
                     setTodos={setCompletedTodos}
                   />
                 </div>
